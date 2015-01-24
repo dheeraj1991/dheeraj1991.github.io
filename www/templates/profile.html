@@ -1,0 +1,92 @@
+<ion-view view-title="Tell Your Clients About Yourself">
+  <ion-content>
+  <style type="text/css">
+    .icon.profile {
+      font-size:98px; 
+      position:absolute; 
+      margin-left:-39px; 
+      color:grey;
+    }
+    .icon.person {
+      font-size: 90px; 
+      color:grey; 
+      position:relative;
+    }
+    .list input[type="text"]{
+      text-align:right;
+      padding-right: 10px;
+      color: #4BB593;
+    }
+    .fields {
+      position:absolute; margin-top:-9px;
+    }
+
+    .button.continue {
+      background-color:#4BB593; 
+      border-color:#4BB593;
+      border-radius: 5px;
+      font-size: 18px;
+      font-weight: bold;
+    }
+  </style>
+
+  <div class="container" style="text-align:center;">
+    <div style="margin-top:10px;">
+      <i class="icon ion-ios-circle-outline profile" ></i>
+    </div>
+    <i class="icon ion-ios-person person" ></i>
+    <span class="col"><i class="icon ion-plus-round balanced" style="color:#4BB593;"></i> Upload Profile Photo</span>
+</div>
+    
+
+     <form ng-submit="continue()">
+      <div class="list">
+        <label class="item item-input">
+          <label class="fields">First Name</label>
+          <input type="text" ng-model="profileData.firstName" placeholder="First Name" >
+        </label>
+
+        <label class="item item-input">
+          <label class="fields">Last Name</label>
+          <input type="text" ng-model="profileData.lastName" placeholder="Last Name">
+        </label>
+         <label class="item item-input">
+          <label class="fields">Phone Number</label>
+          <input type="text" ng-model="profileData.phoneNumber" placeholder="Phone Number">
+        </label>
+
+        <label class="item item-input">
+          <label class="fields">Email</label>
+          <input type="text" ng-model="profileData.Email" placeholder="Email">
+        </label>
+         <label class="item item-input">
+          <label class="fields">Dateof Birth</label>
+          <input type="text" ng-model="profileData.dob" placeholder="mm/dd/yy">
+        </label>
+
+        <label class="item item-input">
+          <label class="fields">Gender</label>
+          <input type="text" ng-model="profileData.Gender" placeholder="Gender">
+        </label>
+
+         <label class="item item-input">
+          <label class="fields">Personal Training Since</label>
+          <input type="text" ng-model="profileData.since" placeholder="Year">
+        </label>
+
+        <label class="item">
+          <div class="row">
+            <div class="col"></div>
+            <div class="col col-75">
+              <button class="button button-block button-balanced continue" type="submit">Continue</button>
+            </div>
+            <div class="col"></div>
+        </label>
+
+      </div>
+
+    </form>
+
+  </ion-content>
+  
+</ion-view>

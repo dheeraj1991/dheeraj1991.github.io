@@ -1,0 +1,46 @@
+<ion-view view-title="Via Text Meassage">
+ <ion-nav-buttons side="left">
+     <a href="#/invite"> <button class="button button-icon ion-ios-arrow-left" ></button></a>
+ </ion-nav-buttons>
+ <ion-nav-buttons side="right">
+      
+      <button style="border:none; margin-top:7px;" ng-click="invite()">
+       <span>invite({{count}})</span></button>
+ </ion-nav-buttons>
+  
+  <ion-content>
+  
+   <ion-list>
+
+  <div class="item item-input-inset">
+    <label class="item-input-wrapper">
+      <input type="text" placeholder="Type to add a client">
+    </label>
+    <button class="button button-clear button-balanced">
+      Invite all
+    </button>
+  </div>
+
+<ion-item class="row item item-avatar " ng-repeat="person in people" >
+
+<img ng-src="{{person.picture.thumbnail}}">
+  <div class="col col-67 col-offset-20">
+    <h2>{{person.name.first}}</h2>
+    <p>{{person.phone}}</p>
+  </div>
+  <div class="col">
+     <label class="col checkbox checkbox-balanced" >
+       <input type="checkbox" ng-model="person.isSelected">
+     </label>
+  </div>
+</ion-item>
+  </ion-list>
+
+ 
+
+
+   
+
+  </ion-content>
+  
+</ion-view>

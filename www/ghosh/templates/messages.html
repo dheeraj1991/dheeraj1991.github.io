@@ -1,0 +1,54 @@
+<style>
+  .message{
+    border-radius:8px;
+    background-color:#eee;
+    font-size:18px;
+    width:100%;
+    display:inline-block;
+    padding:9px 13px;
+  }
+
+  .msg-ctnr{
+    margin:10px 5px;
+  }
+
+  .self-message{
+    margin-right:-16%;
+    text-align:right;
+  }
+  .other-message{
+    text-align:left;
+    margin-left:-16%;
+    color:#fff;
+    background-color:#19f;
+  }
+</style>
+<ion-view hide-nav-bar="true">
+  <div class="bar bar-header" style="text-align:center; height:60px; background: #eee;">
+    <a href="#/invite"> <button class="button button-icon ion-ios-arrow-left" style="margin-top:5px;"></button></a>
+    <img ng-src="{{user.picture.medium}}" style="height:50px;margin: 0 auto; border-radius:50%;"/>
+  </div>  
+<ion-content>
+<br> <br> <br> <br>
+
+<div style="width:75%; text-align:center; margin:0 auto;">
+    <div class="msg-ctnr">
+      <img class="message self-message" ng-src="img/food.jpg"/>
+    </div>
+  <div ng-repeat="m in messages">
+    <!--<div class="msg-ctnr">-->
+      <!--<p class="message other-message">{{replies[$index]}}</p>-->
+    <!--</div>-->
+    <div class="msg-ctnr">
+      <p class="message {{m.sender}}-message">{{m.text}}</p>
+    </div>
+  </div>
+</div>
+</ion-content>
+<ion-footer-bar class="row">
+<div class="col col-10"><i style="font-size:20px; color:#999;" class="ion-camera"></i></div>
+<input type="text" class="col col-80" ng-model="message" placeholder="New message" />
+  <div class="col col-15"><i style="font-size:20px; color:#999;"  class="ion-android-send" ng-click="addMsg()"></i></div>
+</ion-footer-bar>
+</ion-view>
+

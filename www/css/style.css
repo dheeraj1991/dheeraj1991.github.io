@@ -1,0 +1,33 @@
+/* Empty. Add your own CSS if you like */
+.active{
+  color: #19f;
+}
+.steps{
+  color: #ddd;
+}
+body{
+  font-family:roboto;
+}
+
+.list-item-head{
+margin-top: 30px!important;
+font-weight: bold!important;
+}
+
+.rep-choice{
+  text-align: center;
+font-weight: bold;
+margin: 12px;
+}
+
+
+.rep-choice .button{
+  border-color: #ddd!important;
+  background-color:#fff!important;
+}
+.rep-choice .button.selected{
+  background-color:#eee!important;
+}
+.rep-item.selected{
+  background: #eee;
+}

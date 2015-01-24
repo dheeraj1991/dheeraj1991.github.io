@@ -1,0 +1,57 @@
+<ion-view view-title="Client">
+<ion-nav-buttons side="left">
+     <a href="#/clients"><button class="button button-icon ion-ios-arrow-left"></button></a>
+ </ion-nav-buttons>
+ <ion-nav-buttons side="right">
+     <a href="#/clientFeed"> <button class="button button-icon ion-ios-pulse" ></button></a>
+ </ion-nav-buttons>
+  
+  <ion-content>
+
+  <label class="item">
+<div class="container" style="text-align:center;">
+    <img ng-src="{{currentUser.picture.medium}}" style="border-color:green; border-radius: 100px;">
+    <h3>{{currentUser.name.first}} {{currentUser.name.last}}</h3>
+    <p>{{currentUser.location.street}} {{currentUser.location.city}}</p>
+</div>
+</label>
+
+
+<div class="row ">
+  <a class="col button button-icon icon ion-ios-chatbubble-outline" href="#/messages"></a>
+  <a class="col button button-icon icon ion-ios-telephone-outline"></a>
+  <a class="col button button-icon icon ion-ios-email-outline"></a>
+</div>
+
+  
+
+   <div class="list">
+ <a class="item item-divider"  href="#/clientTasks">
+    <p style="text-align:center;font-size:20px;color:black;">Exercise Plan</p>
+  </a>
+
+	  <a class="item item-icon-left" href="#">
+	   <i class="icon ion-ios-arrow-right"></i>
+	    Goals
+	  </a>
+
+	   <a class="item item-icon-left" href="#">
+	   <i class="icon ion-ios-arrow-right"></i>
+	    Notes
+	  </a>
+
+	  <a class="item item-icon-left" href="#">
+	   <i class="icon ion-ios-arrow-right"></i>
+	    Health History
+	  </a>
+
+   </div>
+   
+ 
+
+
+   
+
+  </ion-content>
+  
+</ion-view>

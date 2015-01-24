@@ -1,0 +1,69 @@
+<ion-view view-title="CLIENT FEED">
+ <ion-nav-buttons side="left">
+      <a href="#/settings"><button class="button button-icon ion-ios-gear-outline" ></button></a>
+ </ion-nav-buttons>
+ <ion-nav-buttons side="right">
+     <a href="#/clients"> <button class="button button-icon ion-ios-person-outline"></button></a>
+ </ion-nav-buttons>
+  
+  <ion-content>
+  
+   <style type="text/css">
+    .icon.arrow {
+      position:absolute; margin-left:-6px; color:white; margin-top:10px; font-size:20px;
+    }
+    .item-avatar {
+      background-color:#e5e6e7; border:none;
+    }
+   </style>
+  <ion-list>
+<ion-item class="item-avatar" style="background-color:#e5e6e7;" 
+        ng-click="clientTask(people[0])">
+  <img ng-src="{{people[0].picture.thumbnail}}">
+  <i class="icon ion-arrow-left-b arrow"></i>
+  <div style="background-color:white; padding:10px; border-radius: 15px;" >
+    <h2>{{people[0].name.first}}</h2>
+    <p>needs to have her excecise plan <br> for the week completed!</p>
+    </div>
+</ion-item>
+
+<ion-item class="item-avatar" style="background-color:#e5e6e7;" 
+        ng-click="clientTask(people[1])">
+  <img ng-src="{{people[1].picture.thumbnail}}">
+  <i class="icon ion-arrow-left-b arrow"></i>
+  <div style="background-color:white; padding:10px; border-radius: 15px;" >
+    <h2>{{people[1].name.first}}</h2>
+    <p>uploaded a meal! what do you think</p>
+     <img  ng-src="img/food.jpg"/>
+
+    </div>
+</ion-item>
+
+<ion-item class="item-avatar" style="" 
+        ng-click="clientTask(people[2])">
+  <img ng-src="{{people[2].picture.thumbnail}}">
+  <i class="icon ion-arrow-left-b arrow"></i>
+  <div style="background-color:white; padding:10px; border-radius: 15px;" >
+    <h2>{{people[2].name.first}}</h2>
+    <p>status update: 8000 steps/ <br> 1000 step goal</p>
+    </div>
+</ion-item>
+
+<ion-item class="item-avatar" style="background-color:#e5e6e7;" >
+  <img ng-src="{{trainer.picture.thumbnail}}">
+  <i class="icon ion-arrow-left-b arrow" style="color:#4BB593;" ></i>
+  <div style="background-color:#4BB593; padding:10px; border-radius: 15px;" >
+   <a href="#/settings"> <h2>{{trainer.name.first}}</h2><a>
+    <p>Greate work !!!</p>
+    </div>
+</ion-item>
+
+
+  </ion-list>
+
+
+   
+
+  </ion-content>
+  
+</ion-view>

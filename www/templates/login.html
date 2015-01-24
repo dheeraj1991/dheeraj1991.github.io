@@ -1,0 +1,50 @@
+<ion-view view-title="Log In">
+  <ion-content>  
+           
+  <style type="text/css">
+    .button.register {
+      background-color:#4BB593; 
+      border-color:#4BB593;
+      border-radius: 5px;
+      font-size: 18px;
+    }
+    .icon.tick {
+      color:#4BB593;
+    }
+  </style>
+
+   <h4 style="text-align:center;">Start training your clients remotely today! <br>
+     VideoFit make it easy!</h4>    
+
+     <form ng-submit="login()">
+      <div class="list">
+        <label class="item item-input item-icon-right">
+          <input type="text" ng-model="loginData.email" placeholder="Email">
+          <i class="icon ion-checkmark-circled balanced tick"></i>
+         
+        </label>
+        <label class="item item-input item-icon-right">
+          <input type="password" ng-model="loginData.password" placeholder="Password">
+          <i class="icon ion-checkmark-circled balanced tick"></i>
+        </label>
+        <label class="item">
+          <div class="row">
+            <div class="col"></div>
+            <div class="col col-75">
+            <button class="button button-block button-positive register" type="submit" >Register</button>
+            </div>
+            <div class="col"></div>
+          </div>
+          <div class="item item-body" style="border:none;" >
+           <p style="text-align:center;">By continuing, You Agree to the <a href="#"> Terms of Service </p>
+          </div>
+        </label>
+
+
+      </div>
+
+    </form>
+    
+  </ion-content>
+  
+</ion-view>

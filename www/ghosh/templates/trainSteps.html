@@ -1,0 +1,23 @@
+<ion-view view-title="Dumbell Exercise">
+  <ion-nav-buttons side="left">
+     <a href="#/clientTasks"> <button class="button button-icon ion-ios-arrow-left" ></button></a>
+ </ion-nav-buttons>
+  
+
+  <ion-content on-swipe-left="changeStep(1)" on-swipe-right="changeStep(-1)">
+    <div style="text-align:center;">
+      <img ng-src="img/{{image}}" style="height:64vh"/> 
+      <h2>Step {{count + 1}}</h2>
+      <p>{{desc[count]}}</p>
+      <div class="steps">
+        <i class="ion-icon ion-record" ng-class="{active: count==0}"></i>
+        <i class="ion-icon ion-record" ng-class="{active: count==1}"></i>
+        <i class="ion-icon ion-record" ng-class="{active: count==2}"></i>
+      <div>
+    </div>
+    <div>
+    </div>
+  </ion-content>
+  
+</ion-view>
+
