@@ -3,7 +3,9 @@
      <a href="#/invite"> <button class="button button-icon ion-ios-arrow-left" ></button></a>
  </ion-nav-buttons>
  <ion-nav-buttons side="right">
-      <a href="#/emailInvite"><button style="border:none; margin-top:7px;"><label>invite(3)</label></button></a>
+      
+      <button style="border:none; margin-top:7px;" ng-click="invite()">
+       <span>invite({{count}})</span></button>
  </ion-nav-buttons>
   
   <ion-content>
@@ -28,7 +30,7 @@
   </div>
   <div class="col">
      <label class="col checkbox checkbox-balanced" >
-       <input type="checkbox" >
+       <input type="checkbox" ng-model="person.isSelected">
      </label>
   </div>
 </ion-item>

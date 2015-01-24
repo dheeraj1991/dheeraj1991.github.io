@@ -16,6 +16,10 @@
    	<div class="row" style="border-bottom:1px solid; border-color:#E7E8E9;">
 	   	<div class="col col-90">
 	   		<label style="color:grey;">To:</label>
+	   		<div ng-repeat="email in emailList">
+	   			{{email.name.first}} {{email.name.last}} 
+	   		</div>
+	   			
 		</div>
 		<div class="col">
 			<a href="#/textMsg"> <button class="button button-icon ion-plus-circled" style="font-size:40px; color:#00BE56;"></button> <a>

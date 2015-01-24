@@ -3,7 +3,6 @@ angular.module('trainerCtrls', [])
 .controller('login', function($scope, $location) {
 	$scope.loginData = {};
   $scope.login = function() {
-  	console.log($scope.loginData.email);
   	if($scope.loginData.email === 'trainer')
  	   $location.path('/profile');
  	else if($scope.loginData.email === 'client')
@@ -15,19 +14,30 @@ angular.module('trainerCtrls', [])
     $location.path('/clientFeed');
   }
 })
-.controller('clientFeed', function($scope, $location, people) {
+.controller('clientFeed', function($scope, $location,$ionicLoading, trainer, people) {
 	$scope.people = people.list;
   	$scope.clientTask = function(client) {
   		currentUser = client;
   	  $location.path('/clientTasks');
   	}
-
-})
-.controller('settings',  function($scope, $location, $http) {
-  $http.get('http://api.randomuser.me/')
-    .then(function(response) {
-      $scope.user = response.data.results[0].user;
+    trainer.get().then(function(user){
+      $scope.trainer = user;
     });
+
+       $ionicLoading.show({
+    template : 'Loading ...'
+   });
+   people.ready.then(function() {
+    $ionicLoading.hide();
+   });
+
+     
+})
+.controller('settings',  function($scope, $location, trainer) {
+    trainer.get().then(function(user){
+      $scope.trainer = user;
+    });
+
 })
 .controller('changePassword',  function($scope, $location, people) {
 		$scope.done = function() {
@@ -45,21 +55,33 @@ angular.module('trainerCtrls', [])
     $location.path('/clientFeed');
 	}
 })
-.controller('textMsg', function($scope, $location, people) {
+.controller('textMsg', function($scope, $rootScope , $location, people) {
  	 $scope.people = people.list;
+
+   $scope.$watch('people', function(){
+     console.log(people.list);
+     var count = 0;
+     people.list.map(function(p){
+      count += (p.isSelected === true ? 1 : 0); 
+     });
+     $scope.count = count;
+   }, true);
+
+   $scope.invite = function() {
+     $rootScope.emailList = $scope.people.reduce(function(a, b){
+      if(b.isSelected) a.push(b);
+      return a; 
+     }, []);   
+     $location.url('emailInvite');
+   }
+  
 })
-.controller('emailInvite', function($scope, $location) {
- 	 
+.controller('emailInvite', function($scope, $rootScope, $location){
+    console.log("#123");
+    console.log($rootScope.emailList); 	 
 })
 .controller('clients', function($scope, $location, people, $ionicLoading) {
  	 $scope.people = people.list;
-
- 	 $ionicLoading.show({
- 	 	template : 'Loading ...'
- 	 });
- 	 people.ready.then(function() {
- 	 	$ionicLoading.hide();
- 	 });
 
  	 $scope.setClient = function(client) {
  	 	currentUser = client;
@@ -74,30 +96,7 @@ angular.module('trainerCtrls', [])
  	 	$location.path('/clientGoals');
  	 };
 })
-.factory('ReplaceSrv', function(){
-  var selectedWork = null;
-  var workList = null;
 
-  return{
-    setWork: setWork,
-    getWork: getWork,
-    setAddWork: setAddWork,
-    getAddWork: getAddWork
-  }
-
-  function setWork(work){
-    selectedWork = work;
-  }
-  function getWork(){
-    return selectedWork
-  }
-  function setAddWork(list){
-    workList = list;
-  }
-  function getAddWork(){
-    return workList 
-  }
-})
 .controller('clientTasks', function($scope, $location, ReplaceSrv) {
  	$scope.currentUser = currentUser;
  	$scope.num = [1,2,3];
@@ -151,6 +150,52 @@ angular.module('trainerCtrls', [])
  					  	editMode: false, img:'img/bicyclebentknee.jpeg'}];
 
  
+})
+.factory('ReplaceSrv', function(){
+  var selectedWork = null;
+  var workList = null;
+
+  return{
+    setWork: setWork,
+    getWork: getWork,
+    setAddWork: setAddWork,
+    getAddWork: getAddWork
+  }
+
+  function setWork(work){
+    selectedWork = work;
+  }
+  function getWork(){
+    return selectedWork
+  }
+  function setAddWork(list){
+    workList = list;
+  }
+  function getAddWork(){
+    return workList 
+  }
+})
+.factory('trainer',  function($http, $q) {
+  var trainer = {};
+  var user = null;
+  trainer.get = function(){
+    var deffered = $q.defer();
+
+    console.log(user);
+
+    if(user) deffered.resolve(user);
+    
+
+    $http.get('http://api.randomuser.me/')
+    .then(function(response) {
+      user = angular.copy(response.data.results[0].user);
+      deffered.resolve(user);
+    });
+
+    return deffered.promise;
+  }
+ 
+  return trainer;
 })
 
 .factory('people',  function($http, $q) {

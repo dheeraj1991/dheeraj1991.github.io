@@ -22,7 +22,7 @@
   <img ng-src="{{people[0].picture.thumbnail}}">
   <i class="icon ion-arrow-left-b arrow"></i>
   <div style="background-color:white; padding:10px; border-radius: 15px;" >
-    <h2>{{person.name.first}}</h2>
+    <h2>{{people[0].name.first}}</h2>
     <p>needs to have her excecise plan <br> for the week completed!</p>
     </div>
 </ion-item>
@@ -32,7 +32,7 @@
   <img ng-src="{{people[1].picture.thumbnail}}">
   <i class="icon ion-arrow-left-b arrow"></i>
   <div style="background-color:white; padding:10px; border-radius: 15px;" >
-    <h2>{{person.name.first}}</h2>
+    <h2>{{people[1].name.first}}</h2>
     <p>uploaded a meal! what do you think</p>
      <img  ng-src="img/food.jpg"/>
 
@@ -44,17 +44,16 @@
   <img ng-src="{{people[2].picture.thumbnail}}">
   <i class="icon ion-arrow-left-b arrow"></i>
   <div style="background-color:white; padding:10px; border-radius: 15px;" >
-    <h2>{{person.name.first}}</h2>
+    <h2>{{people[2].name.first}}</h2>
     <p>status update: 8000 steps/ <br> 1000 step goal</p>
     </div>
 </ion-item>
 
-<ion-item class="item-avatar" style="background-color:#e5e6e7;" 
-        ng-click="clientTask(people[3])">
-  <img ng-src="{{people[3].picture.thumbnail}}">
+<ion-item class="item-avatar" style="background-color:#e5e6e7;" >
+  <img ng-src="{{trainer.picture.thumbnail}}">
   <i class="icon ion-arrow-left-b arrow" style="color:#4BB593;" ></i>
   <div style="background-color:#4BB593; padding:10px; border-radius: 15px;" >
-    <h2>{{person.name.first}}</h2>
+   <a href="#/settings"> <h2>{{trainer.name.first}}</h2><a>
     <p>Greate work !!!</p>
     </div>
 </ion-item>
