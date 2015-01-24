@@ -1,0 +1,75 @@
+<style>
+.pre-head{
+  background-color:#eee;
+  margin:15px 0 3px 0;
+}
+.rrselected{
+  color: #19f!important;
+  font-size: 20px!important;
+  border: 1px solid #19f!important;
+  border-radius: 50%!important;
+}
+.fsl{
+  font-size:35px;
+}
+.isele{
+  color: #19f;
+}
+</style>
+<ion-view hide-nav-bar="true">
+<ion-content ng-switch="pageIndex">
+<div ng-switch-when="0" class="img-responsive">
+  <iframe width="100%" src="//www.youtube.com/embed/1919eTCoESo" frameborder="0" allowfullscreen></iframe>
+  <div>
+    <button class="button icon-left button-balanced button-clear pull-right" ng-click="next()"> Next  <i class="ion-chevron-right"></i></button>
+  </div>
+</div>
+<div style="text-align:center" ng-switch-when="1">
+  <div style="font-size:16px;margin:10px 0 0 0;">Amount of Rest: <span style="font-size:22px; color:#19f">8</span></div>
+  <div class="pre-head">How many reps did you complete</div>
+  <div class="button-bar">
+    <a ng-click="seleResp(c)" class="button button-clear" ng-repeat="c in count" ng-class="{rrselected: c===resp}">{{c}}</a>
+  </div>
+
+  <div class="pre-head">Rate the intensity level</div>
+  <div class="button-bar">
+    <div class="button button-clear" ng-click="setIntensity(0)"><i class="ion-sad-outline fsl" ng-class="{isele: intensity===0}"></i></div>
+    <div class="button button-clear" ng-click="setIntensity(1)" ><i class="ion-happy-outline fsl" ng-class="{isele: intensity===1}"></i></div>
+  </div>
+  <br>
+  <div class="row">
+    <div class="col" style="text-align:left" ng-click="prev()">
+      <i class="ion-refresh"></i>
+      Replay Move</div>
+    <div class="button-balanced pull-right col" style="text-align:right" ng-click="next()"><button style="border:none;">Continue Push-ups</button></div>
+  </div>
+</div>
+<div ng-switch-when="2">
+  <iframe width="100%" src="//www.youtube.com/embed/5eSM88TFzAs" frameborder="0" allowfullscreen></iframe>
+  <div>
+    <button class="button icon-left button-balanced button-clear pull-right" ng-click="next()"> Next  <i class="ion-chevron-right"></i></button>
+  </div>
+</div>
+<div style="text-align:center" ng-switch-when="3">
+  <div style="font-size:16px;margin:10px 0 0 0;">Amount of Rest: <span style="font-size:22px; color:#19f">9</span></div>
+  <div class="pre-head">How many reps did you complete</div>
+  <div class="button-bar">
+    <a ng-click="seleResp(c)" class="button button-clear" ng-repeat="c in count" ng-class="{rrselected: c===resp}">{{c}}</a>
+  </div>
+
+  <div class="pre-head">Rate the intensity level</div>
+  <div class="button-bar">
+    <div class="button button-clear" ng-click="setIntensity(0)"><i class="ion-sad-outline fsl" ng-class="{isele: intensity===0}"></i></div>
+    <div class="button button-clear" ng-click="setIntensity(1)" ><i class="ion-happy-outline fsl" ng-class="{isele: intensity===1}"></i></div>
+  </div>
+  <br>
+  <div class="row">
+    <div class="col" style="text-align:left" ng-click="prev()">
+      <i class="ion-refresh"></i>
+      Replay Move</div>
+    <a href="#/myPlan"><div class="button-balanced pull-right col" style="text-align:right" ng-click="myplan()"><button style="border:none;">Finish</button></div></a>
+  </div>
+</div>
+</ion-content>
+</ion-view>
+

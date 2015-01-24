@@ -1,0 +1,203 @@
+<ion-view view-title="{{currentUser.name.first}}" >
+
+ <ion-nav-buttons side="right">
+      <button class="button button-clear button-balanced" ng-click="done()">Done</button>
+ </ion-nav-buttons>
+  
+  <ion-content>
+  <style>
+  	.activTab{
+  		border-bottom: 2px solid #000;
+  	}
+  	.inactivTab {
+  		opacity : 0.3;
+  	}
+    .glow {
+      box-shadow: 0px 0px 15px 5px rgba(0, 255, 0, .75); 
+      -webkit-box-shadow: 0px 0px 15px 5px rgba(0, 255, 0, .75);
+      -moz-box-shadow: 0px 0px 15px 5px rgba(0, 255, 0, .75);
+      -webkit-border-radius: 40px;
+      -moz-border-radius: 40px;
+      border-radius: 40px;
+      margin-top:-80px; 
+      width: 80px;
+      height: 80px;
+    }
+    .btn-add {
+      border:none; 
+      margin-top:10px; 
+      background: transparent;
+      height: 102px;
+      margin-top: 10px;
+      width: 107px;
+      padding-left: 19px;
+    }
+    .add_exercise {
+      width:100%; 
+      background-color:white; 
+      bottom:0px; 
+      text-align:center; 
+      z-index:2;
+    }
+  </style>
+   
+   <label class="item" >
+<div class="container" style="text-align:center;">
+    <img ng-src="{{currentUser.picture.thumbnail}}" style="border-color:green; border-radius: 100px;">
+</div>
+</label>
+
+
+   <div class="row"> 
+  <div class="col" style="text-align:center">S<br>
+        <i class="icon ion-ios-circle-outline" style="font-size:40px;"></i>
+        <div style="margin-top:-35px;">
+          <i class="icon ion-checkmark-circled" style="color:#4BB593; font-size:28px;"></i>
+        </div>
+        <br></div>
+  <div class="col" style="text-align:center">M<br>
+        <i class="icon ion-ios-circle-outline" style="font-size:40px;"></i>
+        <div style="margin-top:-35px;">
+          <i class="icon ion-checkmark-circled" style="color:#4BB593; font-size:28px;"></i>
+        </div>
+        <br></div>
+  <div class="col" style="text-align:center">T<br>
+        <i class="icon ion-ios-circle-outline" style="font-size:40px;"></i>
+        <div style="margin-top:-30px;">7</div><br></div>
+  <div class="col" style="text-align:center">W<br>
+        <i class="icon ion-ios-circle-outline" style="font-size:40px;"></i>
+        <div style="margin-top:-30px;">8</div><br></div>
+  <div class="col" style="text-align:center">T<br>
+        <i class="icon ion-ios-circle-outline" style="font-size:40px;"></i>
+        <div style="margin-top:-30px;">9</div><br></div>
+  <div class="col" style="text-align:center">F<br>
+        <i class="icon ion-ios-circle-outline" style="font-size:40px;"></i>
+        <div style="margin-top:-30px;">10</div><br></div>
+  <div class="col" style="text-align:center">S<br>
+        <i class="icon ion-ios-circle-outline" style="font-size:40px;"></i>
+        <div style="margin-top:-30px;">11</div><br></div>
+</div>
+ 
+ </div>
+	 <!-- </ion-content> -->
+
+	<div class="button-bar">
+  <a class="button button-icon icon ion-android-bicycle" ng-click="setActiveTab('first')"
+   ng-class="{activTab: activeTab=='first', inactivTab: activeTab=='second'}"></a>
+  <a class="button button-icon icon ion-ios-checkmark" ng-click="setActiveTab('second')"  
+  ng-class="{activTab: activeTab=='second', inactivTab: activeTab=='first'}"></a>
+	</div>
+	<div ng-switch="activeTab">
+		 <ion-list  ng-switch-when="first">
+  		  <ion-item class="item-divider" style="text-align:center;">
+   			 Warm up (5:30) </ion-item>
+ 
+     <ion-item  ng-repeat="work in workout" >
+     <div class="row" on-swipe-left="onSwipeLeft(work)" 
+     on-swipe-right="onSwipeRight(work)" >
+     <a  href="#/trainSteps"><img src="{{work.img}}" width="70px" ></a>
+    <div class="col col-50 ">
+      {{work.name}} <p>{{work.time}}</p>
+       </div>
+        <button class="col col-10  button button-clear button-assertive" ng-click="delete(work)"
+        ng-show="work.editMode">Delete</button>
+        <button class="col col-20  button button-clear button-balanced" ng-click="replace(work)"
+        ng-show="work.editMode">Replace</button>
+       </div>
+    </ion-item>
+
+    
+    <div class="item item-divider" style="text-align:center;">
+    Work Out (12:15) </div>
+    <div class="row item item-icon-left" style="padding-left:25px;">
+     <img src="img/bicyclebentknee.jpeg"  width="70px">
+    <div class="col col-50 ">
+      Bicycle - Bent knee
+        <p>1m</p>
+       </div>
+    </div>
+      <div class="add_exercise">
+        <button class="btn-add" ng-click="add()">
+          
+        <h1 style="font-size:50px; color:#86FA85; margin-top:10px;">+</h1>
+        <div class="glow">
+        </div>
+        </button>  
+      </div>
+
+   </ion-list>
+
+   <!-- -->
+    <div class="list" ng-switch-when="second">
+	      <div class="item item-icon-left">
+		    <i class="icon ion-ios-circle-outline"></i>
+        <img src="img/stairs.png" height=20px; width=20px; style="position:absolute; margin-top:0px; margin-left:-37px;">
+		    STAIRS
+		  </div>
+		  <div class="row item" ng-repeat="number in num">
+		    <div class="col col-75 col-offset-10" style="margin-top:10px;">
+		      {{number}} x today - 10 flight min.
+		       </div>
+		     <div class="col">
+		     <label class="col checkbox checkbox-balanced">
+		       <input type="checkbox">
+		     </label>
+		  </div>
+		    </div>
+
+		    <div class="list">
+	      <div class="item item-icon-left">
+		    <i class="icon ion-ios-circle-outline"></i>
+        <i class="icon ion-fork" style="font-size:22px;"></i>
+        
+		    NUTRITION
+		  </div>
+
+		  <div class="row item" ng-repeat="nutri in nutrition">
+		    <div class="col col-75 col-offset-10" style="margin-top:10px;">
+		      {{nutri}}
+		       </div>
+		     <div class="col">
+		     <label class="col checkbox checkbox-balanced">
+		       <input type="checkbox">
+		     </label>
+		  </div>
+		    </div>
+		     <div class="row item item-icon-left" >
+		    <i class="icon ion-android-sync" ></i>
+		    <div class="col col-75 col-offset-10" style="margin-top:10px;">
+		      take a whole food meal...
+		       </div>
+		     <div class="col">
+		     <label class="col checkbox checkbox-balanced">
+		       <input type="checkbox">
+		     </label>
+		  </div>
+		    </div>
+
+
+		     <div class="item item-icon-left">
+			    <i class="icon ion-ios-circle-outline"></i>
+          <i class="icon ion-android-walk" style="font-size:22px;"></i>
+
+			    WALKIING/RUNNING
+			 </div>
+			 <div class="row item" ng-repeat="run in running">
+		    <div class="col col-75 col-offset-10" style="margin-top:10px;">
+		      {{run}}
+		       </div>
+		     <div class="col">
+		     <label class="col checkbox checkbox-balanced">
+		       <input type="checkbox">
+		     </label>
+		  </div>
+		    </div>
+
+	    </div>
+
+	</div>
+   
+ </ion-content>
+  
+  
+</ion-view>

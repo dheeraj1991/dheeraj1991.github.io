@@ -1,0 +1,30 @@
+<ion-view view-title="{{title}}">
+  <ion-nav-buttons side="right" class="button">
+    <button class="button icon-left ion-checkmark button-balanced" ng-click="done()"
+    			 ng-show="showDone===true"> Done</button>
+  </ion-nav-buttons>
+<ion-content>
+
+<ion-item class="item item-thumbnail-left rep-item" ng-hide="hideSelected">
+<img ng-src="{{selectedWork.img}}" />
+<h2 class="list-item-head">{{selectedWork.name}}</h2>
+<!--<p>{{m.year}}</p>-->
+</ion-item>
+
+
+<div class="rep-choice">
+  <div class="button-bar">
+    <a class="button" ng-click="showArea()" ng-class="{selected: option===1}">Area</a>
+    <a class="button" ng-click="showRecent()" ng-class="{selected: option===2}">Recent</a>
+    <a class="button" ng-click="sortList()" ng-class="{selected: option===3}">A-Z</a>
+  </div>
+</div>
+<ion-list>
+<ion-item class="item item-thumbnail-left rep-item" ng-repeat="m in list" ng-click="select(m)" ng-class="{selected:selected==m}">
+<img ng-src="{{m.img}}" />
+<h2 class="list-item-head">{{m.name}}</h2>
+<!--<p>{{m.year}}</p>-->
+</ion-item>
+</ion-list>
+</ion-content>
+</ion-view>

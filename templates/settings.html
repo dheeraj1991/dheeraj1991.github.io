@@ -1,0 +1,57 @@
+<ion-view view-title="Settings">
+ <ion-nav-buttons side="left">
+     <a href="#/clientFeed"><button class="button button-icon ion-ios-pulse"></button></a>
+ </ion-nav-buttons>
+ <ion-nav-buttons side="right">
+     <a href="#/clients"> <button class="button button-icon ion-ios-person-outline"></button></a>
+ </ion-nav-buttons>
+  
+  <ion-content>
+
+  <label class="item">
+<div class="container" style="text-align:center;">
+    <img ng-src="{{user.picture.medium}}" style=" border-radius:100px; border: 2px solid #00BE57; padding: 2px;">
+    <p style="font-size:20px; color:black;"><strong>{{user.name.first}}</strong> {{user.name.last}}</p>
+</div>
+</label>
+
+
+  
+
+   <div class="list">
+
+	  <a class="item " href="#/clients">
+	    Active Clients
+	     <label class="item-note" style="margin-top:-20px;">4</label>
+	  </a>
+
+	  <a class="item  item-icon-right" href="#/invite">
+	    Invite Clients
+	    <i class="icon ion-ios-plus-empty balanced"></i>
+	  </a>
+
+	  <a class="item item-icon-right" href="#/changePassword">
+	    Change Password
+	     <i class="icon ion-ios-arrow-right"></i>
+	  </a>
+
+	   <a class="item item-icon-right" href="#/forgotPassword">
+	    Send me my password
+	     <i class="icon ion-ios-arrow-right"></i>
+	  </a>
+
+	  <a class="item item-icon-right" href="#/login.html">
+	    Log Out
+	     <i class="icon ion-ios-arrow-right"></i>
+	  </a>
+
+   </div>
+   
+ 
+
+
+   
+
+  </ion-content>
+  
+</ion-view>
